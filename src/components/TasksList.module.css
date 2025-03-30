@@ -37,6 +37,15 @@
     margin-bottom: 16px;
 }
 
+.tasksCount {
+    margin: 0 8px;
+    font-size: 12px;
+    background-color: var(--gray-400);
+    color: var(--gray-200) !important;
+    padding: 2px 8px;
+    border-radius: 999px;
+}
+
 .emptyList {
     display: flex;
     flex-direction: column;

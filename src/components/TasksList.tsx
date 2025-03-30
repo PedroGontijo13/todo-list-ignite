@@ -2,12 +2,12 @@ import styles from './TasksList.module.css'
 import clipBoard from '../assets/clipboard.svg'
 
 export function TasksList({ tasks }: { tasks: string[] }) {
-    
+
     return (
         <div className={styles.tasksList}>
             <header className={styles.header}>
-                <p>Tarefas criadas {tasks ? <span>${tasks.length}</span> : <span>0</span>}</p>
-                <p><span>Concluidas</span></p>
+                <p>Tarefas criadas {tasks ? <span className={styles.tasksCount}>{tasks.length}</span> : <span className={styles.tasksCount}>0</span>}</p>
+                <p><span>Concluidas</span>{tasks ? <span className={styles.tasksCount}>{tasks.length}</span> : <span className={styles.tasksCount}>0</span>}</p>
             </header>
             <div className={styles.tasksContainer}>
                 {tasks.length === 0 ? (
