@@ -1,7 +1,8 @@
 import styles from './TasksList.module.css'
 import clipBoard from '../assets/clipboard.svg'
+import { TaskCard } from './TaskCard'
 
-export function TasksList({ tasks }: { tasks: string[] }) {
+export function TasksList({ tasks, onDeleteTask }: { tasks: string[], onDeleteTask: (taskToDelete: string) => void }) {
 
     return (
         <div className={styles.tasksList}>
@@ -18,6 +19,9 @@ export function TasksList({ tasks }: { tasks: string[] }) {
                     </div>
                 ) : (
                     <div>
+                        {tasks.map((task, index) => (
+                            <TaskCard key={index} task={task} onDeleteTask={onDeleteTask} />
+                        ))}
                     </div>
                 )}
             </div>

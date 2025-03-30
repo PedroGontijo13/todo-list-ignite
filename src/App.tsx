@@ -12,12 +12,17 @@ function App() {
     console.log(tasks)
   }
 
+  const handleDeleteTask = (taskToDelete: string) => {
+    const updatedTasks = tasks.filter(task => task !== taskToDelete)
+    setTasks(updatedTasks)
+  }
+
   return (
     <div>
       <Header />
       <div className={styles.container}>
         <AddNewTaskForm onCreateNewTask={handleCreateNewTask} />
-        <TasksList tasks={tasks} />
+        <TasksList tasks={tasks} onDeleteTask={handleDeleteTask} />
       </div>
     </div>
   )
