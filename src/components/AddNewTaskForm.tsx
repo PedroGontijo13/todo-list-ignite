@@ -21,12 +21,14 @@ export function AddNewTaskForm({ onCreateNewTask }: AddNewTaskFormProps) {
     }
 
     return (
-        <div className={styles.container}>
-            <textarea onChange={handleNewTaskChange} placeholder="Add a new task" />
-            <button onSubmit={handleSubmit} type="submit">
-                Create
-                <PlusCircle size={16} weight="bold" />
-            </button>
-        </div>
+        <form onSubmit={handleSubmit}>
+            <div className={styles.container}>
+                <textarea onChange={handleNewTaskChange} placeholder="Add a new task" />
+                <button type="submit">
+                    Create
+                    <PlusCircle size={16} weight="bold" />
+                </button>
+            </div>
+        </form>
     )
 }

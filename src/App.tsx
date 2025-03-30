@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { AddNewTaskForm } from './components/AddNewTaskForm'
 import { Header } from './components/Header'
+import { TasksList } from './components/TasksList'
+import styles from './App.module.css'
 
 function App() {
   const [tasks, setTasks] = useState<string[]>([])
@@ -13,7 +15,10 @@ function App() {
   return (
     <div>
       <Header />
-      <AddNewTaskForm onCreateNewTask={handleCreateNewTask} />
+      <div className={styles.container}>
+        <AddNewTaskForm onCreateNewTask={handleCreateNewTask} />
+        <TasksList tasks={tasks} />
+      </div>
     </div>
   )
 }

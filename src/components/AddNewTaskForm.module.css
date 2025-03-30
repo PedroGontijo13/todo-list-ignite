@@ -5,7 +5,6 @@
     margin: 0 auto;
     gap: 0.5rem;
     flex-wrap: wrap;
-    padding: 0 20rem;
 }
 
 .container textarea {
@@ -17,7 +16,10 @@
     padding: 1rem;
     border-radius: 8px;
     border: 1px solid var(--gray-700);
-    resize: vertical;
+    resize: none;
+    height: 52px;
+    line-height: 1;
+    overflow-y: auto;
 }
 
 .container textarea::placeholder {
