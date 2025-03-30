@@ -4,20 +4,17 @@ import styles from './TaskCard.module.css'
 
 interface TaskCardProps {
     task: string
-    onComplete?: (isCompleted: boolean) => void
+    onCompleteTask: (isCompleted: boolean) => void
     onDeleteTask: (taskToDelete: string) => void
 }
 
-export function TaskCard({ task, onComplete, onDeleteTask }: TaskCardProps) {
+export function TaskCard({ task, onCompleteTask, onDeleteTask }: TaskCardProps) {
     const [isChecked, setIsChecked] = useState(false)
 
     function handleToggleCheck() {
         const newCheckedState = !isChecked
         setIsChecked(newCheckedState)
-
-        if (onComplete) {
-            onComplete(newCheckedState)
-        }
+        onCompleteTask(newCheckedState)
     }
 
     return (
@@ -32,7 +29,7 @@ export function TaskCard({ task, onComplete, onDeleteTask }: TaskCardProps) {
             <p className={`${styles.taskText} ${isChecked ? styles.completed : ''}`}>
                 {task}
             </p>
-            <Trash size={24} className={styles.trashIcon} onClick={() => {onDeleteTask(task)}} />
+            <Trash size={24} className={styles.trashIcon} onClick={() => { onDeleteTask(task) }} />
         </div>
     )
 }
