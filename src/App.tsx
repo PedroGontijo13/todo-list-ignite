@@ -16,6 +16,7 @@ function App() {
   const handleDeleteTask = (taskToDelete: string) => {
     const updatedTasks = tasks.filter(task => task !== taskToDelete)
     setTasks(updatedTasks)
+    setCompletedTasks(completedTasks - 1)
   }
 
   const handleCompleteTask = () => {
@@ -23,11 +24,16 @@ function App() {
   }
 
   return (
-    <div>
+    <div className={styles.container}>
       <Header />
-      <div className={styles.container}>
+      <div className={styles.content}>
         <AddNewTaskForm onCreateNewTask={handleCreateNewTask} />
-        <TasksList tasks={tasks} onDeleteTask={handleDeleteTask} onCompleteTask={handleCompleteTask} completedTasks={completedTasks} />
+        <TasksList
+          tasks={tasks}
+          onDeleteTask={handleDeleteTask}
+          onCompleteTask={handleCompleteTask}
+          completedTasks={completedTasks}
+        />
       </div>
     </div>
   )

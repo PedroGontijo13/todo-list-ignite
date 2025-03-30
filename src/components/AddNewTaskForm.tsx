@@ -25,7 +25,7 @@ export function AddNewTaskForm({ onCreateNewTask }: AddNewTaskFormProps) {
             <div className={styles.container}>
                 <textarea onChange={handleNewTaskChange} placeholder="Add a new task" />
                 <button type="submit">
-                    Create
+                    Criar
                     <PlusCircle size={16} weight="bold" />
                 </button>
             </div>
